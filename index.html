@@ -21,7 +21,8 @@
       embedded
       vr-mode-ui="enabled: false"
       renderer="logarithmicDepthBuffer: true;"
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false">
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
+      sourceWidth: 1280; sourceHeight: 720; displayWidth: 1280; displayHeight: 720">
       
       <!-- Ativa a câmera -->
       <a-entity camera></a-entity>
@@ -56,7 +57,7 @@
       </a-assets>
 
       <!-- Câmera padrão (desabilita o controle de olhar) -->
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <!--<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>-->
       
     </a-scene>
   </body>

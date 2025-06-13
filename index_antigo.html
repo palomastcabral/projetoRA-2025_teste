@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/mindar-image@1.2.0/dist/mindar-image-aframe.prod.js"></script>-->
+    <script src="js/aframe-ar.js"></script>
+  </head>
+  <body>
+    <!--<a-scene mindar-image="imageTargetSrc: targets/teste.mind; autoStart: true; filterMinCF:0.0001; filterBeta: 10000;"
+            renderer="colorManagement: true, physicallyCorrectLights: true"
+             vr-mode-ui="enabled: false"
+             device-orientation-permission-ui="enabled: false">-->
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+        <a-entity camera></a-entity>
+    </a-scene>
+
+      <a-assets>
+        <a-asset-item id="cubo-gltf" src="models/cubo.glb"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.1 0.1 0.1" src="#cubo-gltf" animation-mixer></a-gltf-model>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>

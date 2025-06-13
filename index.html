@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Importa o A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- Importa o AR.js local (não via CDN) -->
+    <script src="js/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    
+    <!-- Cena principal com configurações do AR.js -->
+    <!-- Impede tela cheia automática -->
+    <!-- Remove o botão de VR -->
+    <!-- Evita bugs visuais com objetos 3D -->
+    <!-- Usa a webcam como entrada de vídeo -->
+    <!-- Desativa interface de depuração -->
+    <a-scene
+      embedded
+      vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true;"
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false">
+      
+      <!-- Ativa a câmera -->
+      <a-entity camera></a-entity>
+
+      <!-- Marcador NFT (imagem personalizada) -->
+      <!-- Caminho para os arquivos do marcador (sem extensão) -->
+      <!-- Ativa suavização de movimento -->
+      <!-- Nº de quadros para suavização -->
+      <!-- Sensibilidade da suavização -->
+      <!-- Limite para aplicar suavização -->
+      <a-nft
+        type="nft"
+        url="targets/teste/teste"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5">
+        
+        <!-- Modelo 3D importado (GLTF/GLB) -->
+        <a-gltf-model
+          src="#cubo-gltf"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="0.1 0.1 0.1"
+          animation-mixer>
+        </a-gltf-model>
+      </a-nft>
+
+      <!-- Define os assets (modelos 3D, texturas, etc.) -->
+      <a-assets>
+        <a-asset-item id="cubo-gltf" src="models/cubo.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- Câmera padrão (desabilita o controle de olhar) -->
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      
+    </a-scene>
+  </body>
+</html>

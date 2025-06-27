@@ -24,8 +24,8 @@
       arjs="trackingMethod: best; sourceType: webcam; facingMode: environment; debugUIEnabled: false;
       sourceWidth: 1280; sourceHeight: 720; displayWidth: 1280; displayHeight: 720">
       
-      <!-- Ativa a câmera -->
-      <a-entity camera></a-entity>
+      <!-- Ativa a câmera
+      <a-entity camera></a-entity>-->
 
       <!-- Marcador NFT (imagem personalizada) -->
       <!-- Caminho para os arquivos do marcador (sem extensão) -->
@@ -33,23 +33,37 @@
       <!-- Nº de quadros para suavização -->
       <!-- Sensibilidade da suavização -->
       <!-- Limite para aplicar suavização -->
-      <a-nft
+      <!--<a-nft
         type="nft"
         url="targets/teste/simbolo-teste"
         smooth="true"
         smoothCount="10"
         smoothTolerance="0.01"
         smoothThreshold="5">
-        
+  -->
         <!-- Modelo 3D importado (GLTF/GLB) -->
-        <a-gltf-model
+       <!-- <a-gltf-model
           src="#cubo-gltf"
           position="0 0 0"
           rotation="0 0 0"
           scale="0.1 0.1 0.1"
           animation-mixer>
         </a-gltf-model>
-      </a-nft>
+      </a-nft>-->
+
+      <a-marker
+        type="pattern"
+        url="targets/teste/simbolo-teste.patt">
+
+        <a-gltf-model
+          src="#cubo-gltf"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="0.1 0.1 0.1"
+         animation-mixer>
+        </a-gltf-model>
+      </a-marker>
+
 
       <!-- Define os assets (modelos 3D, texturas, etc.) -->
       <a-assets>
@@ -57,7 +71,7 @@
       </a-assets>
 
       <!-- Câmera padrão (desabilita o controle de olhar) -->
-      <!--<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>-->
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
     </a-scene>
   </body>

@@ -42,7 +42,7 @@
   /* Responsividade básica */
   @media (max-width: 768px) {
     .navbar ul {
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
     }
   

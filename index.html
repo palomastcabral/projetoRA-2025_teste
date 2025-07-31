@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- AR.js com suporte a NFT -->
-    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.3.1/aframe/build/aframe-ar-nft.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/aframe/build/aframe-ar-nft.min.js"></script>-->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar-nft.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
     <a-scene
-      vr-mode-ui="enabled: false"
       embedded
+      vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true;"
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
     >
       <!-- Marcador NFT personalizado -->
       <a-nft
         type="nft"
-        src="targets/teste/teste1-caderno"
+        src="targets/caderno/fset"
         smooth="true"
         smoothCount="10"
         smoothTolerance="0.01"

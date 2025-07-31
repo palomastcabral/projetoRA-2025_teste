@@ -1,0 +1,53 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do menu de navegação */
+  .navbar {
+    background-color: #004c99; /* azul escuro (adapte se quiser) */
+    padding: 15px 0;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar ul li {
+    margin: 0 20px;
+  }
+  
+  .navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ffcc00; /* amarelo para hover, ajuste se desejar */
+  }
+  
+  /* Estilo das seções para teste visual */
+  section {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  /* Responsividade básica */
+  @media (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar ul li {
+      margin: 10px 0;
+    }
+  }
+  

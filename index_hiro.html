@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto RA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Estilo externo -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- A-Frame e AR.js -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <!--<script src="js/aframe-ar.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- Cena RA -->
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    vr-mode-ui="enabled: false"
+    renderer="logarithmicDepthBuffer: true"
+    id="ar-scene">
+    
+    <!--<a-marker type="pattern" url="/targets/teste/pattern-simbolo-teste.patt">
+      <a-box position="0 0.5 0" color="red"></a-box>
+    </a-marker>-->
+
+    <!--<a-assets>
+      <a-asset-item id="cubo-gltf" src="models/cubo.glb"></a-asset-item>
+    </a-assets>
+    
+    <a-marker type="pattern" url="targets/teste/pattern-simbolo-teste.patt">
+      <a-gltf-model 
+        src="#cubo-gltf"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="0.1 0.1 0.1"
+        animation-mixer>
+      </a-gltf-model>
+    </a-marker>-->
+
+    <!--<a-assets>
+      <a-asset-item id="modelo" src="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Duck/glTF/Duck.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-marker type="pattern" url="targets/simbolo-teste.patt">
+      <a-gltf-model src="#modelo" position="0 0 0" scale="0.01 0.01 0.01"></a-gltf-model>
+    </a-marker>-->
+
+    <!--<a-marker preset="hiro">
+      <a-box position="0 0.5 0" color="red"></a-box>
+    </a-marker>-->
+
+      
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <!-- Interface (UI) -->
+  <div id="ui-overlay">
+    <header>
+      <h1>Realidade Aumentada</h1>
+    </header>
+
+    <nav>
+      <button onclick="alert('Página: Realidade Aumentada')">RA</button>
+      <button onclick="alert('Página: Sobre')">Sobre</button>
+      <button onclick="alert('Redes sociais')">Redes Sociais</button>
+    </nav>
+  </div>
+
+</body>
+</html>

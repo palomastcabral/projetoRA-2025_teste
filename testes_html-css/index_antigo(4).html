@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MindAR Exemplo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- A-Frame -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+
+    <!-- MindAR corrigido (via GitHub) -->
+    <script src="https://cdn.jsdelivr.net/gh/MindAR-js/aframe/dist/aframe/mindar-image-aframe.prod.js"></script>
+
+    <style>
+      body { margin: 0; overflow: hidden; background: black; }
+      #startButton {
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1em 2em;
+        font-size: 1.2em;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="startButton">Iniciar AR</button>
+
+    <a-scene
+      id="scene"
+      mindar-image="imageTargetSrc: targets.mind; autoStart: false"
+      embedded
+      color-space="sRGB"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      style="display: none;"
+    >
+      <a-assets></a-assets>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-box color="red" position="0 0 0" scale="0.5 0.5 0.5"></a-box>
+      </a-entity>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    </a-scene>
+
+    <script>
+      const startButton = document.getElementById("startButton");
+      const scene = document.querySelector("#scene");
+
+      startButton.addEventListener("click", async () => {
+        startButton.style.display = "none";
+        scene.style.display = "block";
+
+        const mindarComponent = scene.components["mindar-image"];
+        try {
+          await mindarComponent.start();
+          console.log("MindAR iniciado");
+        } catch (err) {
+          console.error("Erro ao iniciar MindAR:", err);
+        }
+      });
+    </script>
+  </body>
+</html>

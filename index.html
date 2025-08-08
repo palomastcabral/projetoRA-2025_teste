@@ -1,28 +1,204 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindAR Demo</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled:false">
-      <a-assets>
-        <a-asset-item id="model" src="./Cube-Woman-Character.glb"></a-asset-item>
-      </a-assets>
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex:0">
-        <!--<a-box position="0 0 0" color="red"></a-box>-->
-        <!--<a-gltf-model rotation="0 0 0" position="0 0 0" scale="1 1 1" src="#model"></a-gltf-model>-->
-        <a-gltf-model
-          src="#model"
-          position="0 0 0"
-          rotation="0 0 0"
-          scale="0.1 0.1 0.1"
-        ></a-gltf-model>
-      </a-entity>
-    </a-scene>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aprendizado de Inglês com RA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f8ff; /* azul claro */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      width: 100%;
+      height: 300px; /* altura máxima da imagem de capa */
+      overflow: hidden;
+    }
+
+    nav {
+    background-color: #1e90ff; /* azul */
+    padding: 0 20px;
+  }
+  .nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    position: relative;
+    justify-content: space-between;
+  }
+  .logo {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  .nav-links li a:hover {
+    color: #add8e6; /* azul claro */
+  }
+  
+  /* Menu hamburguer */
+  #menu-toggle {
+    display: none;
+  }
+  .menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 600px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #1e90ff;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .nav-links li {
+      margin: 15px 0;
+    }
+    #menu-toggle:checked + .menu-icon + .nav-links {
+      display: flex;
+    }
+    .menu-icon {
+      display: block;
+    }
+  }
+  
+    header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-weight: 600;
+      color: #1e90ff;
+      margin-bottom: 10px;
+      font-size: 2.0rem;
+    }
+
+    /* Em telas menores que 480px, reduz o tamanho */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    a.button {
+      background: #1e90ff;
+      color: white;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+
+    a.button:hover {
+      background: #1064c9;
+      box-shadow: 0 6px 18px rgba(16, 100, 201, 0.6);
+    }
+
+    .english-phrase {
+      font-style: italic;
+      color: #555;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .translation {
+      font-size: 0.9rem;
+      color: #777;
+      font-style: normal;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-container">
+        <a href="#" class="logo">RA CELIFF</a>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul class="nav-links">
+          <li><a href="#">Início</a></li>
+          <li><a href="como-usar.html">Como usar</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+    </nav>
+    <img src="./images/capa-5.jpg" alt="Imagem de capa do projeto" />
+  </header>
+
+  <main>
+    <h1>CELIFF:<br>Inglês com Realidade Aumentada</h1>
+    <p>Toque no botão abaixo e veja a mágica acontecer com seu livro Touchstone!</p>
+    <a href="experiencia.html" class="button" aria-label="Iniciar Experiência de RA">Iniciar</a>
+  </main>
+
+  <footer>
+    &copy; 2025 Realidade Aumentada - CELIFF
+  </footer>
+</body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Como usar - Aprendizado de Inglês com RA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; 
+      padding: 0;
+      background: #f0f8ff;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1e90ff;
+      width: 100%;
+      position: fixed; /* fixa no topo */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 50px;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      color: white;
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #add8e6;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1e90ff;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links li {
+        margin: 15px 0;
+      }
+      #menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+
+    main {
+      margin-top: 80px; /* para não ficar escondido atrás do nav fixo */
+      max-width: 700px;
+      padding: 0 20px;
+      text-align: justify;
+    }
+
+    h1 {
+      font-weight: 600;
+      color: #1e90ff;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+      background: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">RA CELIFF</a>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="como-usar.html" aria-current="page">Como usar</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Como usar o aplicativo de Realidade Aumentada</h1>
+    <p>
+      Para aproveitar ao máximo o nosso aplicativo, siga os passos abaixo:
+    </p>
+    <p>
+      1. Acesse a experiência de Realidade Aumentada clicando no botão “Iniciar Experiência de RA” na página inicial.<br />
+      2. Permita o acesso à câmera do seu dispositivo para que o aplicativo possa reconhecer os marcadores nos livros didáticos.<br />
+      3. Aponte a câmera para as páginas indicadas do livro Touchstone para visualizar os objetos virtuais em 3D.<br />
+      4. Interaja com os conteúdos digitais para reforçar o aprendizado do vocabulário e das estruturas em inglês.<br />
+      5. Caso tenha dúvidas, retorne à seção “Como usar” ou entre em contato conosco.<br />
+    </p>
+    <p>
+      O aplicativo foi desenvolvido para funcionar em dispositivos móveis e computadores modernos, garantindo acesso fácil para todos os alunos do CELIFF.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 Realidade Aumentada - CELIFF
+  </footer>
+</body>
+</html>

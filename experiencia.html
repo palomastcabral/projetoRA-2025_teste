@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experiência de Realidade Aumentada</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- A-Frame e MindAR.js -->
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind" 
+           vr-mode-ui="enabled: false" 
+           device-orientation-permission-ui="enabled:false">
+    <a-assets>
+      <a-asset-item id="model" src="./Cube-Woman-Character.glb"></a-asset-item>
+    </a-assets>
+    
+    <!-- Câmera com look-controls desabilitado para controle manual -->
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    
+    <!-- Target 0 com modelo 3D -->
+    <a-entity mindar-image-target="targetIndex:0">
+      <a-gltf-model
+        src="#model"
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="0.1 0.1 0.1"
+      ></a-gltf-model>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
